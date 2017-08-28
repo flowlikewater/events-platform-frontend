@@ -7,8 +7,17 @@ import { Event } from './event'
 @Injectable()
 
 export class EventService {
+    headers: Headers;
+    options: RequestOptions;
+
     private eventsUrl = "http://localhost:3000/events";
-    constructor(private http:Http){}
+
+    constructor(private http:Http){
+        this.headers = new Headers({'Content-Type':'application/json'})
+        this.options = new RequestOptions({headers:this.headers})
+
+    }
+
     getEvents():Observable<Event[]>{
         return this.http.get(this.eventsUrl)
         .map((response:Response) => <Event[]>response.json())
@@ -16,9 +25,7 @@ export class EventService {
     getEvent(id:number){
         return this.http.get(this.eventsUrl + "/" + id + ".json")
     }
-    // createEvent(event:Event): Observable<Event>{
-    //     let headers = new Headers({'Content-Type':'application/json'})
-    //     let options = new RequestOptions({headers:headers})
-    //     return this.http.post(this.eventsUrl, JSON.stringify(event), options).map((res:Response) => res.json())
-    // }
+    createEvent(event:Event): Observable<Event>{
+        return this.http.post(this.eventsUrl, JSON.stringify(event), this.options).map((res:Response) => res.json())
+    }
 } 
