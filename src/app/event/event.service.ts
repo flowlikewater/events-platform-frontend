@@ -16,4 +16,9 @@ export class EventService {
     getEvent(id:number){
         return this.http.get(this.eventsUrl + "/" + id + ".json")
     }
+    // createEvent(event:Event): Observable<Event>{
+    //     let headers = new Headers({'Content-Type':'application/json'})
+    //     let options = new RequestOptions({headers:headers})
+    //     return this.http.post(this.eventsUrl, JSON.stringify(event), options).map((res:Response) => res.json())
+    // }
 } 

@@ -5,17 +5,19 @@ import { HttpModule } from "@angular/http";
 
 import { AppComponent } from './app.component';
 import { EventListComponent } from './event/event-list.component';
+import { EventShowComponent } from "./event/event-show.component";
+import { EventNewComponent } from "./event/event-new.component";
 import { EventService } from './event/event.service';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AppRoutingModule } from './app-routing.module';
-import { EventShowComponent } from "./event/event-show.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     EventListComponent,
     HomepageComponent,
-    EventShowComponent
+    EventShowComponent,
+    EventNewComponent
   ],
   imports: [
     BrowserModule,
