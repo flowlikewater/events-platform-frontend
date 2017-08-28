@@ -1,0 +1,7 @@
+<div *ngIf='event'>
+    <div style='border:1px solid grey; margin:10px;'>
+        <h3>{{event.name}}</h3>
+        <p>{{event.description}}</p>
+        <p>{{event.created_at | date:'medium'}}</p>
+    </div>
+</div>
