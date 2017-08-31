@@ -10,10 +10,10 @@ import { AuthenticationService } from './authentication.service'
                     <button (click)='checking()'class='btn btn-outline-success my-2 my-sm-0'>console user</button>
                 </div>
                 <div class='field'>
-                    <button class='btn btn-outline-success my-2 my-sm-0' type='submit' routerLink='/login' routerLinkActive='active' *ngIf="isLoggedOut">Log In </button>
+                    <button class='btn btn-outline-success my-2 my-sm-0' type='submit' routerLink='/login' routerLinkActive='active' *ngIf="!isLoggedIn()">Log In </button>
                 </div>
                 <div class='field'>
-                    <button class='btn btn-outline-success my-2 my-sm-0' type='submit' routerLink='/signup' routerLinkActive='active' *ngIf="isLoggedOut">Sign Up </button>
+                    <button class='btn btn-outline-success my-2 my-sm-0' type='submit' routerLink='/signup' routerLinkActive='active' *ngIf="!isLoggedIn()">Sign Up </button>
                 </div>
                 <div class='field'>
                     <button class='btn btn-outline-success my-2 my-sm-0' type='submit' routerLink='/logout' *ngIf="isLoggedIn()" (click)='logOut()'>Log Out </button>
@@ -42,6 +42,6 @@ export class AuthLinksComponent {
     }
 
     checking(){
-        this.authService.validate()
+        console.log(this.authService.isLoggedIn())
     }
 }

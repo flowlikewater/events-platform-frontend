@@ -52,10 +52,13 @@ export class AuthenticationService {
         this.output = null
         return this.tokenService.validateToken().subscribe(
             res => {
-                this.output = res;
-                console.log(this.output)
+                this.output = res.json();
+                this.output.success
             },
-            error => this.output = error
+            error => {
+                this.output = error
+                this.output
+            }
         )
     }
 
