@@ -16,10 +16,11 @@ import { AuthenticationService } from './authentication.service'
                     <button class='btn btn-outline-success my-2 my-sm-0' type='submit' routerLink='/signup' routerLinkActive='active' *ngIf="!isLoggedIn()">Sign Up </button>
                 </div>
                 <div class='field'>
+                    <button class='btn btn-outline-success my-2 my-sm-0' routerLink='/myProfile' *ngIf="isLoggedIn()">My Profile </button>
+                </div>
+                <div class='field'>
                     <button class='btn btn-outline-success my-2 my-sm-0' type='submit' routerLink='/logout' *ngIf="isLoggedIn()" (click)='logOut()'>Log Out </button>
                 </div>
-                <h2>hi</h2>
-
             </div>
         </div>
     `
