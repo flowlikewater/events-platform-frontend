@@ -23,7 +23,8 @@ export class AuthenticationService {
         this.tokenService.init({
             registerAccountPath: 'http://localhost:3000/auth',
             signInPath: 'http://localhost:3000/auth/sign_in',
-            validateTokenPath: 'http://localhost:3000/auth/validate_token'
+            validateTokenPath: 'http://localhost:3000/auth/validate_token',
+            signOutPath: 'http://localhost:3000/auth/sign_out'
         });
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.token = currentUser && currentUser.token;
@@ -46,7 +47,6 @@ export class AuthenticationService {
             }
         )
     }
-
 
     validate(){
         this.output = null

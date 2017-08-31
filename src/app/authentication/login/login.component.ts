@@ -7,7 +7,7 @@ import { AuthenticationService } from '../authentication.service'
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
 })
-
+ 
 export class LoginComponent implements OnInit {
     submitted: boolean;
     loginForm: FormGroup;
@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
         this.submitted = true
         // if (!this.loginForm.valid){return}
         this.authService.logIn(value.email, value.password)
+
         // .subscribe(
         //     this.authService.redirectAfterLogin.bind(this.authService),
             // response - *bind* makes sure that "this" in "this.redirectUrl" is referring to the type declared in the auth.service.ts file
