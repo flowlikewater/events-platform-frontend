@@ -1,0 +1,28 @@
+<div class="ui middle aligned center aligned grid">
+    <div class="column">
+        <h2 class="ui image header">
+        <div class="content">
+            Login to account
+        </div>
+        </h2>
+
+        <form #loginForm="ngForm" (ngSubmit)="submit(loginForm.value)" class="ui large form">
+
+            <div class="ui stacked secondary  segment">
+                <div class="field">
+                    <input type="email" name='email' (ngModel)='loginForm.email' placeholder='email'>
+                </div>
+                <div class="field">
+                    <input type="password" name='password' (ngModel)='loginForm.password' placeholder='password'> 
+                </div>
+                <button class="ui positive basic button" type="submit">Submit</button>
+            </div>
+    
+        </form>
+    
+        <div class="ui message">
+        Don't have an account? <a routerLink="/signup">Sign up</a>
+        </div>
+    </div>
+</div>
+        

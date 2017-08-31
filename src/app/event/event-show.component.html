@@ -4,4 +4,28 @@
         <p>{{event.description}}</p>
         <p>{{event.created_at | date:'medium'}}</p>
     </div>
+
+    <button type='button' (click)='update(event)' class='btn btn-primary'>Update</button>
+    <button type='button' (click)='delete(event)' class='btn btn-primary' >Delete</button>
+
+
+    <div class='container' [hidden]="!editBtnClicked">
+        <form #eventForm='ngForm'>
+            <!-- eventForm.reset() resets the form inputs once it is submitted -->
+            <div class='form-group'>
+                <label for="event-name"><h3>Event Name</h3></label>
+                <input class='form-control' required id='name' type='text' name='name' placeholder='Event Name' #name='ngModel' [(ngModel)]='event.name'>
+                <!-- input "#"" ==>  template reference variable  -->
+                <div [hidden]='name.valid || name.pristine' class='alert alert-danger'>Name of the event is required</div>            
+            </div>
+            <div class='form-group'>
+                <label for="description"><h3>Event Description</h3></label>
+                <textarea class='form-control' required id='description' name='description' rows='3' #description='ngModel' [(ngModel)]='event.description'></textarea>
+                <div [hidden]='description.valid || description.pristine' class='alert alert-danger'>Description is required</div>
+            </div>
+            <button type='submit' (click)='update(event); onUpdateClicked()' class='btn btn-primary' [disabled]="!eventForm.form.valid">Update Event</button>
+            <button type='cancel' (click)="eventForm.reset()" class='btn btn-primary'>Cancel</button>
+        </form>
+    </div>
+
 </div>
